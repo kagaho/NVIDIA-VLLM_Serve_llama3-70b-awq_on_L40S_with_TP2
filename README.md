@@ -189,3 +189,54 @@ sys	0m0.012s
 ```
 
 
+Notes:
+
+- vLLM server exposes:
+
+  - /v1/chat/completions
+  - /metrics
+  - /health
+  - /v1/models
+
+- Server logs confirm:
+
+  - CUDA platform detected
+  - NCCL enabled
+  - world_size=2 with TP rank 0/1
+  - Model shards loaded (model-00001-of-00009 ... model-00009-of-00009)
+  - nvidia-smi confirms GPU utilization during inference.
+
+
+curl -s http://localhost:8002/v1/models | jq
+```bash
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "/mnt/elita/soundwave/models/llama3-70b-awq",
+      "object": "model",
+      "created": 1772229003,
+      "owned_by": "vllm",
+      "root": "/mnt/elita/soundwave/models/llama3-70b-awq",
+      "parent": null,
+      "max_model_len": 8192,
+      "permission": [
+        {
+          "id": "modelperm-a32eda300553056d",
+          "object": "model_permission",
+          "created": 1772229003,
+          "allow_create_engine": false,
+          "allow_sampling": true,
+          "allow_logprobs": true,
+          "allow_search_indices": false,
+          "allow_view": true,
+          "allow_fine_tuning": false,
+          "organization": "*",
+          "group": null,
+          "is_blocking": false
+        }
+      ]
+    }
+  ]
+}
+```
