@@ -1,3 +1,16 @@
+### from the metrics below, someimportant ones, which show inference performance:
+
+vllm:prefix_cache_queries_total{engine="0",model_name="/mnt/shockwave/soundwave/models/llama3-70b-awq"} 24.0  
+vllm:prompt_tokens_total{engine="0",model_name="/mnt/shockwave/soundwave/models/llama3-70b-awq"} 24.0  
+vllm:generation_tokens_total{engine="0",model_name="/mnt/shockwave/soundwave/models/llama3-70b-awq"} 400.0  
+vllm:iteration_tokens_total_count{engine="0",model_name="/mnt/shockwave/soundwave/models/llama3-70b-awq"} 400.0  
+vllm:iteration_tokens_total_sum{engine="0",model_name="/mnt/shockwave/soundwave/models/llama3-70b-awq"} 424.0  
+vllm:time_to_first_token_seconds_sum{engine="0",model_name="/mnt/shockwave/soundwave/models/llama3-70b-awq"} 0.05244112014770508
+
+
+
+
+
 rteixeira@shockwave:~$ curl -s http://localhost:8002/metrics
 
 ```
