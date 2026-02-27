@@ -45,8 +45,8 @@ This lab validates that **vLLM (OpenAI-compatible API server)** can serve **Tech
 │       └── special_tokens_map.json
 ├── hf_cache/
 └── vllm_cache/
-
-
+```
+```
 podman run --rm -it --net=host \
   --hooks-dir=/usr/share/containers/oci/hooks.d \
   --security-opt=label=disable \
@@ -61,16 +61,17 @@ podman run --rm -it --net=host \
      --port 8002 \
      --tensor-parallel-size 2 \
      2>&1 | tee /mnt/shockwave/soundwave/logs/vllm_tp2_default_DEBUG_8002.log'
+```
 
-
+```
 rteixeira@shockwave:~$ podman ps
 CONTAINER ID  IMAGE                              COMMAND               CREATED         STATUS         PORTS       NAMES
 36b35d9a98c7  docker.io/vllm/vllm-openai:latest  -lc vllm serve /m...  20 minutes ago  Up 20 minutes              fervent_lovelace
-
+```
 
 
 podman logs:
-
+```
 (APIServer pid=46) INFO 02-27 20:31:36 [utils.py:287]
 (APIServer pid=46) INFO 02-27 20:31:36 [utils.py:287]        █     █     █▄   ▄█
 (APIServer pid=46) INFO 02-27 20:31:36 [utils.py:287]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.16.0
@@ -165,7 +166,7 @@ Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35
 (APIServer pid=46) INFO:     127.0.0.1:35378 - "GET /metrics HTTP/1.1" 200 OK
 (APIServer pid=46) INFO:     127.0.0.1:53558 - "GET /metrics HTTP/1.1" 200 OK
 (APIServer pid=46) INFO:     127.0.0.1:41798 - "GET /metrics HTTP/1.1" 200 OK
-
+```
 
 
 time curl -s http://localhost:8002/v1/chat/completions \
@@ -177,10 +178,11 @@ time curl -s http://localhost:8002/v1/chat/completions \
     "temperature": 0.2
   }' > /dev/null
 
-
+```
 {"id":"chatcmpl-817f6b7680434c82","object":"chat.completion","created":1772224404,"model":"/mnt/shockwave/soundwave/models/llama3-70b-awq","choices":[{"index":0,"message":{"role":"assistant","content":"GPU tensor parallelism is a technique used to accelerate deep learning computations by parallelizing tensor operations across multiple GPUs. This approach takes advantage of the fact that many deep learning models can be split into smaller sub-tasks that can be executed independently, allowing for significant speedups in training and inference times.\n\nBy dividing the model into smaller tensors and processing them in parallel across multiple GPUs, tensor parallelism can achieve near-linear scaling with the number of GPUs used. This is particularly useful for large-scale deep learning models that require massive computational resources to train.\n\nOne of the key challenges in implementing tensor parallelism is ensuring that the parallelized operations are correctly synchronized and communicated across GPUs. This requires careful management of data transfer and synchronization between GPUs, as well as optimized memory allocation and access patterns.\n\nTo address these challenges, various parallelization strategies have been developed, including data parallelism, model parallelism, and pipeline parallelism. Data parallelism involves dividing the input data into smaller chunks and processing them in parallel across multiple GPUs, while model parallelism involves splitting the model into smaller components and processing them in parallel.\n\nPipeline parallelism, on the other hand, involves dividing the computation into a series of stages, each of which is executed on a different GPU. This approach can be particularly effective for models with complex dependencies between layers.\n\nSeveral deep learning frameworks, including TensorFlow and PyTorch, have implemented tensor parallelism using various parallelization strategies. These frameworks provide APIs and tools for developers to easily parallelize their models and take advantage of multiple GPUs.\n\nIn addition to deep learning frameworks, several specialized libraries and tools have been developed to support tensor parallelism, including NCCL, a library for collective operations, and GPUDirect, a technology for direct GPU-to-GPU communication.\n\nTensor parallelism has been widely adopted in various applications, including natural language processing, computer vision, and recommender systems. It has been shown to achieve significant speedups in training and inference times, making it an essential technique for scaling deep learning","refusal":null,"annotations":null,"audio":null,"function_call":null,"tool_calls":[],"reasoning":null},"logprobs":null,"finish_reason":"length","stop_reason":null,"token_ids":null}],"service_tier":null,"system_fingerprint":null,"usage":{"prompt_tokens":24,"total_tokens":424,"completion_tokens":400,"prompt_tokens_details":null},"prompt_logprobs":null,"prompt_token_ids":null,"kv_transfer_params":null}
 real	0m11.773s
 user	0m0.004s
 sys	0m0.012s
+```
 
 
