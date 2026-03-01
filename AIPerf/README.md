@@ -43,6 +43,10 @@ $ aiperf profile \
   --streaming
 ```
 
+- streaming
+[![Alt text](./image.png)](./image.png)
+
+
 ``` bash
 
                                                NVIDIA AIPerf | LLM Metrics
