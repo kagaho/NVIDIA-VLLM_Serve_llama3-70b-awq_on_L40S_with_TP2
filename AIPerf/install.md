@@ -10,7 +10,28 @@ podman run -d --name aiperf-runner --net=host \
   bash -lc "python -m pip install -U pip >/dev/null 2>&1 && pip install --only-binary=:all: aiperf >/dev/null 2>&1 && sleep infinity"
 ```
 
+$ podman exec -it aiperf-runner bash
+```
+root@elita:/# aiperf --help
+Usage: aiperf COMMAND
 
+NVIDIA AIPerf
+
+╭─ Commands ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ analyze-trace  Analyze mooncake trace for prefix statistics                                                                                                                                                     │
+│ plot           Generate visualizations from AIPerf profiling data.                                                                                                                                              │
+│ profile        Run the Profile subcommand.                                                                                                                                                                      │
+│ --help (-h)    Display this message and exit.                                                                                                                                                                   │
+│ --version      Display application version.                                                                                                                                                                     │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+root@elita:/#
+```
+
+
+
+
+
+- 1 time running container + installation:
 ```bash
 podman run --rm -it --net=host \
   --security-opt=label=disable \
