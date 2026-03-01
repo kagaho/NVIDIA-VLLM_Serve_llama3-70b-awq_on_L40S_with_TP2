@@ -45,7 +45,11 @@ $ aiperf profile \
 
 - streaming
 [![Alt text](./image.png)](./image.png)
-
+  
+  
+---  
+  
+- Result:  
 
 ``` bash
 
