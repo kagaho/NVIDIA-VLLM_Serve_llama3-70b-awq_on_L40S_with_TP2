@@ -33,7 +33,7 @@ NVIDIA AIPerf
 │ --version      Display application version.                                                                                                                                                                     │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
-
+```
 $ aiperf profile \
   --model /mnt/elita/soundwave/models/llama3-70b-awq \
   --url http://localhost:8002 \
@@ -41,3 +41,8 @@ $ aiperf profile \
   --concurrency 10 \
   --request-count 100 \
   --streaming
+```
+
+
+
+
