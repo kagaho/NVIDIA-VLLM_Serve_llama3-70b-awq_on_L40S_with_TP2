@@ -24,27 +24,33 @@ Password:
 ---
   
 #### NSIGHT APP DashBoard (Offline mode)
-
+  
+#### Timeline View
 ![Timeline View](pictures/nsight-01.png) 
 
 - Shows the full CPU + GPU timeline (threads, CUDA API calls, GPU kernels, NVTX ranges like NCCL) so you can correlate when work happens and spot idle gaps / lack of overlap between CPU scheduling, comms, and GPU compute.
   
-  
+
+#### Analysis Summary    
 ![Analysis Summary](pictures/nsight-02.png) 
 
 - High-level “run facts”: CPU/GPU inventory, process summary, and the Nsight Systems options/version used to collect the trace—useful for documenting the exact capture context.
   
-    
+#### Diagnostic Summary
 ![Diagnostic Summary](pictures/nsight-03.png) 
 
 - A quick health check: informational/warning/error messages generated during capture and post-processing (e.g., missing symbols, dropped events, configuration issues).
-      
+
+#### Files      
 ![files](pictures/nsight-04.png) 
-      
+
+
+#### Sqlite - Expert View
 ![sqlite - Expert System Views-GPU Gaps](pictures/nsight-05.png) 
   
 - Automated analysis that highlights periods where the GPU had no work queued (“gaps”), which often indicates CPU-bound scheduling, synchronization, or communication stalls rather than raw GPU throughput limits.  
-    
+
+#### Other Statistics
 ![GPU Utilization](pictures/nsight-06.png) 
 
 - A time-based view of how busy the GPU is (utilization/active periods) to confirm whether you’re compute-bound (GPU consistently busy) or latency/coordination-bound (utilization comes in bursts with gaps).
