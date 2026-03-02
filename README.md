@@ -2,7 +2,7 @@
 
 This lab validates that **vLLM (OpenAI-compatible API server)** can serve **TechxGenus/Meta-Llama-3-70B-Instruct-AWQ** on **NVIDIA L40S GPUs** using **Tensor Parallelism = 2**, and captures the key artifacts/metrics needed for reproducibility and troubleshooting.
   
-We also verify system performance with NVIDIA ![AIPerf](AIPerf/README.md) and ![Nsight Profiling](NSIGHT/README.md)
+We also verify system performance with NVIDIA [AIPerf](AIPerf/README.md) and [Nsight Profiling](NSIGHT/README.md)
 
 
 ---
