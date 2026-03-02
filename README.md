@@ -2,7 +2,11 @@
 
 This lab validates that **vLLM (OpenAI-compatible API server)** can serve **TechxGenus/Meta-Llama-3-70B-Instruct-AWQ** on **NVIDIA L40S GPUs** using **Tensor Parallelism = 2**, and captures the key artifacts/metrics needed for reproducibility and troubleshooting.
   
-We also verify system performance with NVIDIA [AIPerf](AIPerf/README.md) and [Nsight Profiling](NSIGHT/README.md)
+- [VLLM Collect Env](vllm_collect-env.md) output
+  
+- We will deep dive inspect [VLLM Throughput benchmarks](vllm-benchmark-llama3-70b-awq-troughput.ipynb), [VLLM Latency Benchmarks](vllm-benchmark-llama3-70b-awq-latency.ipynb), retrieve [Prometheus Metrics](prometheus-metrics-llama3-70b-awq.ipynb) and the list of [Prometheus counters](prometheus_counters.md);
+  
+- We also verify system performance with NVIDIA [AIPerf](AIPerf/README.md) and [Nsight Profiling](NSIGHT/README.md)
 
 
 ---
