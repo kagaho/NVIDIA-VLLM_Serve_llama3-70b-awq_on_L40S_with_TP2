@@ -9,7 +9,7 @@ Nsight Systems visualizes system workload metrics on a timeline and provides too
 In the following activity, we will show how to run it on testing/pre production LLM deployment and an offline visualisation with Nisght System app (MacOS):
   
   
-- ![nsys profiling](nsys_profiling.md)     
-- ![NSight Systems App](Nsight_Systems_app.md)
+- [nsys profiling](nsys_profiling.md)     
+- [NSight Systems App](Nsight_Systems_app.md)
   
 
