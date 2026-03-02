@@ -1,4 +1,4 @@
-# Nsight Visalization
+# Nsight Visualization
 
 ### Installation MACOS
 
