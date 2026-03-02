@@ -1,0 +1,9 @@
+# Nsight Systems reports (huge binaries)
+*.nsys-rep
+*.qdstrm
+*.sqlite
+*.sqlite-journal
+*.db
+
+# Nsight Report files
+NSIGHT/reports/
